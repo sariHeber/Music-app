@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Gener } from "../../classes/Gener.enum";
 import Song from "../../classes/Song.class";
+import BackButton from "../../components/BackButton";
 
 const AddSong = (props: any) => {
   const navigate = useNavigate();
@@ -84,6 +85,7 @@ const AddSong = (props: any) => {
         </FormControl>
         <input type="submit"></input>
       </form>
+      <BackButton></BackButton>
     </>
   );
 };

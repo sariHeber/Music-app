@@ -3,7 +3,7 @@ import axios from "axios"
 import { addSong, deleteSong, editSong, GetAllSongs, getByArtist } from "../redux/action";
 import Song from "../classes/Song.class";
 
-export const getAll :any= () => {
+export const getAll: any = () => {
     return async (dispatch: any) => {
         try {
             const res = await axios.get('http://localhost:8080/songs/all');
@@ -15,7 +15,7 @@ export const getAll :any= () => {
     }
 }
 
-export const add:any = (song: Song) => {
+export const add: any = (song: Song) => {
     return async (dispatch: any) => {
         try {
             const res = await axios.post('http://localhost:8080/songs/add', song, {
@@ -32,7 +32,7 @@ export const add:any = (song: Song) => {
     }
 }
 
-export const getSongByArtist:any= (artist: string) => {
+export const getSongByArtist: any = (artist: string) => {
     return async (dispatch: any) => {
         try {
             const res = await axios.get(`http://localhost:8080/songs/byArtist/${artist}`);
@@ -43,7 +43,7 @@ export const getSongByArtist:any= (artist: string) => {
         }
     }
 }
-export const deleteS:any = (id: string) => {
+export const deleteS: any = (id: string) => {
     return async (dispatch: any) => {
         try {
             await axios.delete(`http://localhost:8080/songs/delete/${id}`, {
@@ -60,11 +60,11 @@ export const deleteS:any = (id: string) => {
     }
 }
 
-export const edit:any = (song: Song) => {
+export const edit: any = (song: Song) => {
     return async (dispatch: any) => {
         try {
-         const res=   await axios.put(`http://localhost:8080/songs/edit/${song.id}`,
-            song,{
+            const res = await axios.put(`http://localhost:8080/songs/edit/${song.id}`,
+                song, {
                 headers: {
                     'Content-Type': 'application/json',
                     Accept: 'application/json',

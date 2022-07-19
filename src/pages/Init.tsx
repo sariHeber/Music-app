@@ -20,35 +20,30 @@ function Init() {
   useEffect(() => {
     dispatch(getAll());
   }, [])
-  const listSong:Song[]= useSelector((state: any) =>state.songReducer.songsList);
-    const addSong = (song: Song)=>{
-        dispatch(add(song));
-        navigate("/");
-    }
-    const editSong = (song: Song)=>{
-      dispatch(edit(song));
-      navigate("/");
-    }
-    const deleteSong = (id:String)=>{
-      dispatch(deleteS(id));
-    }
-    const searchSong = (artist: string)=>{
-      dispatch(getSongByArtist(artist));
-      navigate("/");
-    }
+  const listSong: Song[] = useSelector((state: any) => state.songReducer.songsList);
+  const addSong: any = (song: Song) => {
+    dispatch(add(song));
+  }
+  const editSong: any = (song: Song) => {
+    dispatch(edit(song));
+  }
+  const deleteSong = (id: String) => {
+    dispatch(deleteS(id));
+  }
+  const searchSong = (artist: string) => {
+    dispatch(getSongByArtist(artist));
+  }
 
   return (
     <div>
-      
       <Routes>
-        
-      { listSong&& <Route path="/" element={ <SongLandingPage songs={listSong} deleteSong={deleteSong} editSong={editSong} byArtist={searchSong}></SongLandingPage>} />}
-         <Route path="/new" element={<AddSong songs={listSong} addSong={addSong}></AddSong>} /> 
-          <Route path="/edit/:id" element={<EditSong songs={listSong} editSong={editSong} ></EditSong>} />
-        
+        {listSong && <Route path="/" element={<SongLandingPage songs={listSong} deleteSong={deleteSong} editSong={editSong} byArtist={searchSong}></SongLandingPage>} />}
+        <Route path="/new" element={<AddSong songs={listSong} addSong={addSong}></AddSong>} />
+        <Route path="/edit/:id" element={<EditSong songs={listSong} editSong={editSong} ></EditSong>} />
       </Routes>
       <button onClick={() => { navigate('/') }}>home</button>
       <button onClick={() => { navigate('/new') }}>add</button>
+
     </div>
   );
 }

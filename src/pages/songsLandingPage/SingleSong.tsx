@@ -76,9 +76,10 @@ function SingleSong(props: any) {
             ":hover": { background: "rgb(53 44 173)" },
           }}
           onClick={() => {
-            navigate ("/edit/" + song.id) ;
+            navigate("/edit/" + song.id);
           }}
-        >edit
+        >
+          edit
           <BorderColorIcon />
         </IconButton>
       </Card>

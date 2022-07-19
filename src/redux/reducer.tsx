@@ -9,7 +9,7 @@ type Action =
   | { type: "SAVE_CHANGES"; payload: string }
   | { type: "GET_BY_ARTIST"; payload: Song[] };
 
-const initialState:Songs = {
+const initialState: Songs = {
   songsList: [],
 };
 
@@ -21,9 +21,8 @@ export const songReducer = (state = initialState, action: Action) => {
       return { ...state, songsList: [...state.songsList, action.payload] };
     case "DELETE_SONG":
       return {
-        songsList: state.songsList.filter((song) => song.id != action.payload)
-        // ...state,
-        // songsList: state.songsList.filter((song: Song) => song.id !== action.payload),
+        ...state,
+        songsList: state.songsList.filter((song) => song.id !== action.payload),
       };
     case "EDIT_SONG":
       return {
@@ -38,4 +37,3 @@ export const songReducer = (state = initialState, action: Action) => {
       return { state };
   }
 };
-
